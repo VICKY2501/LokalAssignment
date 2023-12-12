@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="product"
+            type="com.example.lokalassignment.dataclasses.Product" />
+
+    </data>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:cardCornerRadius="4dp"
+            android:background="@color/white"
+            android:foreground="?attr/selectableItemBackground"
+            app:cardElevation="3dp"
+            app:cardUseCompatPadding="true"
+            android:layout_margin="8dp">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <ImageView
+                    android:id="@+id/item_image"
+                    imageurl="@{product.thumbnail}"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="2dp"
+                    android:scaleType="centerCrop"
+                    android:contentDescription="@string/product_image" />
+
+                <TextView
+                    android:id="@+id/item_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="17sp"
+                    android:textStyle="bold"
+                    android:text="@{product.title}"
+                    tools:text="@string/default_title" />
+
+                <TextView
+                    android:id="@+id/item_description"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="14sp"
+                    android:text="@{product.description}"
+                    tools:text="@string/default_description" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/item_price"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="16sp"
+                        android:text="@{`$ `+String.valueOf(product.price)}"
+                        tools:text="@string/default_price" />
+                </LinearLayout>
+                <TextView
+                    android:id="@+id/item_discount_percentage"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{String.valueOf(product.discountPercentage)+`% discount available.`}"
+                    android:textColor="@color/material_dynamic_neutral70"
+                    android:textSize="14sp"
+                    tools:text="@string/default_discount" />
+                <RatingBar
+                    android:id="@+id/item_rating"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:isIndicator="true"
+                    android:shadowColor="@color/cardview_light_background"
+                    android:rating="@{product.rating}"
+                    android:stepSize="0.1"
+                    tools:rating="4.5" />
+
+                <TextView
+                    android:id="@+id/item_stock"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="14sp"
+                    android:text="@{`Stocks Available `+String.valueOf(product.stock)}"
+                    tools:text="@string/default_stock" />
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

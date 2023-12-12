@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">LokalAssignment</string>
+    <string name="product_image">prod_img</string>
+    <string name="default_title">title</string>
+    <string name="default_description">description</string>
+    <string name="default_price">price</string>
+    <string name="default_discount">discount</string>
+    <string name="default_stock">stock</string>
+</resources>
